@@ -35,6 +35,11 @@ class WF_Base_Model extends CI_Model {
 		return $this;
 	}
 
+	public function get($limit = null, $offset = null)
+	{
+		return $this->_db->get($this->table_name, $limit, $offset);
+	}
+
 	public function get_result($limit = null, $offset = null)
 	{
 		$qr = $this->_db->get($this->table_name, $limit, $offset);
@@ -53,6 +58,12 @@ class WF_Base_Model extends CI_Model {
 		return $this->_db->get($this->table_name)->row();
 	}
 
+	public function get_by_many($data)
+	{
+		$this->_db->where($data);
+		return $this->get_result();
+	}
+
 	public function query_result($query)
 	{
 		$qr = $this->_db->query($query);
@@ -69,7 +80,12 @@ class WF_Base_Model extends CI_Model {
 	{
 		$data = $this->_fix_before_change($data);
 		$this->_db->insert($this->table_name, $data);
-		return $this->_db->affected_rows();
+		return $this->_db->insert_id();
+	}
+
+	public function insert_many($data)
+	{
+		$this->_db->insert_batch($this->table_name, $data);
 	}
 
 	public function update($data, $id)
@@ -87,18 +103,55 @@ class WF_Base_Model extends CI_Model {
 		return $this->_db->affected_rows();
 	}
 
+	public function limit($limit = null, $offset = null)
+	{
+		$this->_db->limit($limit, $offset);
+		return $this;
+	}
+
+	public function like($column, $match)
+	{
+		$this->_db->like($column, $match);
+		return $this;
+	}
+
+	public function or_like($column, $match)
+	{
+		$this->_db->or_like($column, $match);
+		return $this;
+	}
+
+	public function not_like($column, $match)
+	{
+		$this->_db->not_like($column, $match);
+		return $this;
+	}
+
+	public function or_not_like($column, $match)
+	{
+		$this->_db->or_not_like($column, $match);
+		return $this;
+	}
+
 	public function get_table_name($prefix = false)
 	{
-		if ($prefix)
+		if ($prefix !== false)
 			return $this->db->dbprefix($this->table_name);
 		else
 			return $this->table_name;
+	}
+
+	public function count_all()
+	{
+		return $this->_db->count_all($this->table_name);
 	}
 
 	public function _fetch_table()
 	{
 		$class_name = strtolower(get_class($this));
 		$this->table_name =  preg_replace('/((^(mdl_))|((_mdl)$)|((_model)$))/', '', $class_name);
+		if (!$this->db->table_exists($this->table_name))
+			show_error('Table not exists! Please read <a href="https://github.com/WebFikirleri/WF-CI-Base-Model">documentation.</a>');
 		$this->columns = $this->_db->list_fields($this->table_name);
 		$this->columns_data = $this->_db->field_data($this->table_name);
 		foreach ($this->columns_data as $col) {
@@ -118,5 +171,5 @@ class WF_Base_Model extends CI_Model {
 	}
 }
 
-/* End of file base_Model.php */
-/* Location: ./application/models/base_Model.php */
+/* End of file wf_base_model.php */
+/* Location: ./application/models/wf_base_model.php */
