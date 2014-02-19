@@ -1,5 +1,7 @@
 #Codeigniter Base Model
 
+Read Wiki for more information: [Wiki](https://github.com/WebFikirleri/WF-CI-Base-Model/wiki/Welcome)
+
 ##Usage
 
 ###Creating Model
@@ -63,6 +65,3 @@ To use table prefixes you have to get prefix.
     $tablename = $this->mdl_table->get_table_name(true); // true will add prefix to tablename, default = false
     $row = $this->mdl_tablename->query_row("SELECT * FROM {$tablename} WHERE id=1");
 
-##Examples
-
-...
