@@ -1,6 +1,7 @@
 #Codeigniter Base Model
 
-Read Wiki for more information: [Wiki](https://github.com/WebFikirleri/WF-CI-Base-Model/wiki/Welcome)
+Read [documentation](https://github.com/WebFikirleri/WF-CI-Base-Model/wiki/Welcome) for more information: 
+[Documentation](https://github.com/WebFikirleri/WF-CI-Base-Model/wiki/Welcome)
 
 ##Usage
 
