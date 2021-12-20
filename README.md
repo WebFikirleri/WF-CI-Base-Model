@@ -66,4 +66,4 @@ To use table prefixes you have to get prefix.
     $tablename = $this->mdl_table->get_table_name(true); // true will add prefix to tablename, default = false
     $row = $this->mdl_tablename->query_row("SELECT * FROM {$tablename} WHERE id=1");
 
-![Counter](https://webfikirleri.com/counter?url=https://github.com/WebFikirleri/WF-CI-Base-Model)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FWebFikirleri%2FWF-CI-Base-Model&count_bg=%233D8FC8&title_bg=%23555555&icon=microsoftacademic.svg&icon_color=%23E7E7E7&title=VISITS&edge_flat=true)](https://hits.seeyoufarm.com)
