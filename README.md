@@ -1,11 +1,13 @@
-#Codeigniter Base Model
+# Codeigniter Base Model
 
 Read [documentation](https://github.com/WebFikirleri/WF-CI-Base-Model/wiki/Welcome) for more information: 
 [Documentation](https://github.com/WebFikirleri/WF-CI-Base-Model/wiki/Welcome)
 
-##Usage
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z2LXJ6H)
 
-###Creating Model
+## Usage
+
+### Creating Model
 
 When you create a model for your table, it has to contains table name with \_mdl or  \_model suffix or mdl_ prefix.
 
@@ -35,7 +37,7 @@ Under "application/models" folder you have to create your table model as describ
   
 That's all...
 
-###Using Like A CodeIgniter DB Class
+### Using Like A CodeIgniter DB Class
 
 You can use this model like CodeIgniter's Model. For example:
 
@@ -49,7 +51,7 @@ You can use this model like CodeIgniter's Model. For example:
     $row = $this->mdl_tablename->where(array('id'=>'1')->get_row();
     echo $row->datetime;
     
-###Custom Queries
+### Custom Queries
 
 You can return result or row from custom queries:
 
